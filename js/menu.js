@@ -1,10 +1,5 @@
 var menuState = {
 	create: function(){
-		this.music = game.add.audio('music');
-		this.music.loop = true;
-		this.music.volume = .5;
-		this.music.play();
-		
 		game.global.score = 0;
 		
 		if(!localStorage.getItem('labirinto_highScore')){
@@ -39,7 +34,6 @@ var menuState = {
 	},
 	
 	startGame: function(){
-		this.music.stop();
 		game.state.start('stage1');
 	}
 };

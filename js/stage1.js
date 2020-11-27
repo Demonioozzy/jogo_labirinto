@@ -1,17 +1,6 @@
 var stage1State = {
 	create: function () {
 		this.onGame = true;
-		//Música e sons
-		this.music = game.add.audio('music');
-		this.music.loop = true;
-		this.music.volume = .5;
-		this.music.play();
-
-		this.sndCoin = game.add.audio('getitem');
-		this.sndCoin.volume = .5;
-
-		this.sndLoseCoin = game.add.audio('loseitem');
-		this.sndLoseCoin.volume = .5;
 
 		game.add.sprite(0, 0, 'bg');
 
@@ -99,9 +88,9 @@ var stage1State = {
 		this.emitter.setYSpeed(-50, 50);
 		this.emitter.gravity.y = 0;
 
-		//Timer
+		//Tempo
 		this.time = 100;
-		this.txtTimer = game.add.text(game.world.width - 15, 15, 'TIME: ' + this.getText(this.time), { font: '15px emulogic', fill: '#fff' });
+		this.txtTimer = game.add.text(game.world.width - 15, 15, 'TEMPO: ' + this.getText(this.time), { font: '15px emulogic', fill: '#fff' });
 		this.txtTimer.anchor.set(1, 0);
 		this.timer = game.time.events.loop(1000, function () {
 			this.time--;
@@ -164,7 +153,6 @@ var stage1State = {
 		txtBestScore.anchor.set(.5);
 
 		game.time.events.add(5000, function () {
-			this.music.stop();
 			if (this.coins >= 10) {
 				game.state.start('stage2');
 			} else {

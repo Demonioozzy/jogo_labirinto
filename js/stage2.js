@@ -1,18 +1,7 @@
 var stage2State = {
 	create: function () {
 		this.onGame = true;
-		//Música e sons
-		this.music = game.add.audio('music');
-		this.music.loop = true;
-		this.music.volume = .5;
-		this.music.play();
-
-		this.sndCoin = game.add.audio('getitem');
-		this.sndCoin.volume = .5;
-
-		this.sndLoseCoin = game.add.audio('loseitem');
-		this.sndLoseCoin.volume = .5;
-
+		
 		game.add.sprite(0, 0, 'bg');
 
 		this.maze = [
@@ -83,10 +72,10 @@ var stage2State = {
 
 		//coletar moeda
 		this.coins = 0;
-		this.txtCoins = game.add.text(15, 15, 'COINS: ' + this.getText(this.coins), { font: '15px emulogic', fill: '#fff' });
+		this.txtCoins = game.add.text(15, 15, 'MOEDAS: ' + this.getText(this.coins), { font: '15px emulogic', fill: '#fff' });
 
 		//exibir score
-		this.txtScore = game.add.text(game.world.centerX, 15, 'SCORE: ' + this.getText(game.global.score), { font: '15px emulogic', fill: '#fff' });
+		this.txtScore = game.add.text(game.world.centerX, 15, 'PONTOS: ' + this.getText(game.global.score), { font: '15px emulogic', fill: '#fff' });
 		this.txtScore.anchor.set(.5, 0);
 
 		//controles
@@ -164,7 +153,6 @@ var stage2State = {
 		txtBestScore.anchor.set(.5);
 
 		game.time.events.add(5000, function () {
-			this.music.stop();
 			if (this.coins >= 10) {
 				game.state.start('end');
 			} else {

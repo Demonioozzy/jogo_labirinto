@@ -17,10 +17,6 @@ var loadState = {
 		game.load.spritesheet('enemy','img/enemy.png',24,40);
 		game.load.spritesheet('player','img/player.png',24,32);
 		
-		game.load.audio('getitem','sfx/getitem.ogg');
-		game.load.audio('loseitem','sfx/loseitem.ogg');
-		game.load.audio('music','sfx/music.ogg');
-		
 		game.physics.startSystem(Phaser.Physics.ARCADE);
 	},
 	
